@@ -1,0 +1,16 @@
+{
+  "name": "rick",
+  "version": "0.0.1",
+  "description": "A VCS",
+  "main": "index.js",
+  "author": "abhishek97",
+  "license": "MIT",
+  "private": false,
+  "bin": {
+    "rick": "./index.js"
+  },
+  "dependencies": {
+    "commander": "^2.11.0",
+    "fs-extra": "^4.0.2"
+  }
+}
