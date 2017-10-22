@@ -4,11 +4,14 @@
 
 const fs = require('fs-extra')
 const crypto = require('crypto')
+const R = require('ramda')
+
+const filterByStatus = (status) => R.filter(R.propEq("status", status))
 
 module.exports = {
-    async isValidRepo (cwd) {
+    isValidRepo (cwd) {
         try {
-            const stats = await fs.stat(cwd + '/.rick')
+            const stats = fs.statSync(cwd + '/.rick')
             return stats.isDirectory()
         } catch (e) {
             return false
@@ -19,6 +22,11 @@ module.exports = {
         return crypto.createHash('sha1').update(data).digest('hex')
     },
     hash (data) {
+        if (typeof data === 'object')
+            data = JSON.stringify(data)
         return crypto.createHash('sha1').update(data).digest('hex')
-    }
+    },
+    getChanged: filterByStatus("changed"),
+    getNew: filterByStatus("new"),
+    getDeleted: filterByStatus("deleted")
 }
