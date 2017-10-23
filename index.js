@@ -9,5 +9,5 @@ program
 	.command('add', 'Add files to staging Area')
 	.command('commit', 'Commit files in the staging area')
 	.command('checkout <commitId>', 'Apply a commit')
-	.command('history', 'Show rick history')
+	.command('history', 'Show commit history')
 	.parse(process.argv)

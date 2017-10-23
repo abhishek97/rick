@@ -33,6 +33,8 @@ cwdTree.build()
             const path = file.path.replace(process.cwd() + '/', "")
             console.log(chalk.green(path))
         })
+
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
     })
     .catch(e => console.error(e))
 
